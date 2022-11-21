@@ -1,0 +1,29 @@
+.menu-card {
+  border-radius: 10px;
+  width: 120px;
+  height: 120px;
+  color: white;
+//   min-width: 100px;
+}
+
+.menu-card:hover {
+  color: white;
+}
+
+/*Remove the scrollbar from Chrome, Safari, Edge and IE*/
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+* {
+  -ms-overflow-style: none !important;
+}
+
+.product-card-hover-black:hover {
+  color: #000000;
+}
+
+.product-card-hover-white:hover {
+  color: white;
+}

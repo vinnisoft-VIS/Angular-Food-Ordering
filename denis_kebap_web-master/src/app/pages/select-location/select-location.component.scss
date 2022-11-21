@@ -1,0 +1,28 @@
+.bg {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 15.32%, rgba(196, 196, 196, 0) 282.3%), url('../../../assets/images/login-background-image.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.select-location {
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+}
+
+.btn-dark {
+  background-color: black !important;
+  border: white 1px solid;
+  height: 90px;
+  border-radius: 10px;
+}
+
+.location-font-family {
+    font-family: 'Roboto', sans-serif;
+}

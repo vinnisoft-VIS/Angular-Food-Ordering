@@ -1,0 +1,53 @@
+<div class="d-flex mt-2 p-2">
+  <div class="col-2">
+    <img class="avatar" src="../../../assets/images/denis-logo.png" alt="" width="40%">
+  </div>
+  <div class="col-3">
+    <!-- <form class="bg-light d-rounded pl-4 py-2 mt-3" width="50%">
+      <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
+      <input class="ml-3 w-75 border-0 bg-light" type="text" name="searchText" placeholder="Search" aria-label="Search"
+        mdbInput [(ngModel)]="searchText" width="50%" (input)="onSearch()" [value]="searchText">
+    </form> -->
+  </div>
+  <div class=" col-5 offset-1">
+
+    <div class="dropdown" mdbDropdown>
+      <div class="d-flex justify-content-center">
+        <img src="../../../assets/images/location-logo-dark.png" alt="" width="25px" height="30px">
+        <select class="form-select border-0" aria-label="Default select example" [(ngModel)]="selectedLocation"
+          (change)="onChangeLocation(selectedLocation)">
+          <option selected>Select Location</option>
+          <option *ngFor="let location of locations" [value]="location.id">{{location.name}}</option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container-fluid main mt-4">
+  <div class="row row-height justify-content-center">
+    <div class="col scroll text-center align-items-center">
+      <div *ngFor="let category of categories; let i = index;">
+        <app-product-list [locationId]="locationId" [index]="i" [categoryId]="category.id">
+        </app-product-list>
+        <br>
+
+      </div>
+
+
+      <br><br>
+      <button type="button" mdbBtn class="d-rounded-btn logout-btn" color="dark" mdbWavesEffect
+        (click)="logout()"></button>
+
+    </div>
+    <div class="col-3 scroll border border-top-0 border-right-0 border-bottom-0 border-dark animated"
+      *ngIf="selectedProducts && selectedProducts.length">
+      <app-product-ingredients></app-product-ingredients>
+    </div>
+    <div class="col-3 border border-top-0 border-right-0 border-bottom-0 border-light animated"
+      *ngIf="selectedProducts && selectedProducts.length">
+      <app-order-details></app-order-details>
+    </div>
+  </div>
+</div>

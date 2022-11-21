@@ -1,0 +1,122 @@
+.main {
+  height: 100vh;
+}
+
+.menu-card {
+  border-radius: 10px;
+  background-color: #000000;
+  // width: 100%;
+}
+
+.round {
+  position: relative;
+}
+
+.round label {
+  background: #EBEBEB;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 9px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked+label {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.round input[type="checkbox"]:checked+label:after {
+  opacity: 1;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.card {
+  box-shadow: none;
+  border: 0;
+  font-weight: 400;
+  border-bottom: solid 1px black;
+  border-radius: 0;
+}
+
+.d-rounded {
+  border-radius: 10px;
+}
+
+.d-rounded-btn {
+  border-radius: 30px;
+}
+
+.logout-btn {
+  background: url('../../../assets/images/logout-btn-icon.png') no-repeat;
+  height: 6%;
+  width: 120px;
+  background-position: 43% 43%;
+}
+
+.pickup-time-btn {
+  position: relative;
+  top: 30px;
+}
+
+/*Set the row height to the viewport*/
+.row-height {
+  height: 100vh;
+}
+
+/*Set up the columns with a 100% height, body color and overflow scroll*/
+
+.scroll {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/*Remove the scrollbar from Chrome, Safari, Edge and IE*/
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+* {
+  -ms-overflow-style: none !important;
+}
+
+.animated{
+  animation: ss 0.5s linear;
+}
+
+@keyframes ss {
+  from{
+    right: -500px;
+    opacity: 0.5;
+  }
+  to{
+  
+    right: 0px;
+    opacity: 1;
+  }  
+}

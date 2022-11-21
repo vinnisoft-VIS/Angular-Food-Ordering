@@ -1,0 +1,31 @@
+<div class="bg container-fluid" *ngIf="locations && locations.length">
+  <div class="d-lg-none h-25"></div>
+  <div class="d-flex justify-content-center">
+
+    <div class="mt-5">
+      <img src="../../../assets/images/select-location-icon.png" alt="">
+    </div>
+
+  </div>
+  <div class="d-flex justify-content-center mt-2">
+
+    <h3 class="select-location location-font-family">Select Location</h3>
+  </div>
+  <div *ngFor="let location of locations; let i = index;">
+    <div class="d-flex justify-content-center mt-2">
+      <div class="col-11 col-md-5 col-lg-4">
+        <div class="my-1">
+          <div class="card btn btn-primary btn-block text-left location-font-family" mdbBtn color="dark"
+            (click)="onClickLocation(location.id)">
+            <p>{{location.name}}</p>
+            <p style="font-size: 10px;" class="location-font-family">
+              {{location.address}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+    <h3 class="font-weight-bold font" *ngIf="products && products.length" [ngClass]="[i != 0 ? 'mt-4' : '']">{{categoryName}}</h3>
+
+    <div fxLayout="row none d-flex flex-wrap justify-content-start">
+      <div *ngFor="let product of products; let j = index;">
+        <div class="btn p-4 m-1 menu-card font"
+          [ngStyle]="{'background-color':product.color ? product.color : 'black' }"
+          (click)="onClickProduct({id: product.id, name: product.name, fullPrice: product.price, priceWithoutTax:
+          product.priceWithoutTax, count: 1, tax: product.Tax, productIndex: j})">
+          <span>
+            {{product.name}}
+          </span>
+          <p>
+            &euro;{{product.price}}
+          </p>
+        </div>
+      </div>
+    </div>
+          <!-- [ngClass]="product.color == 'black' ? 'product-card-hover-white' : 'product-card-hover-black'" -->

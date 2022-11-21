@@ -1,0 +1,7 @@
+{
+  "/api/*": {
+    "target": "https://deniskebap.appdeft.biz",
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

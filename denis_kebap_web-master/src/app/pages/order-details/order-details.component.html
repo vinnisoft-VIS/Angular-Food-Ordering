@@ -1,0 +1,162 @@
+  <h3 class="text-center font-weight-bold font">
+    Order Details
+  </h3>
+  <div class="d-flex justify-content-center">
+    <div class="btn btn-dark p-3 menu-card" (click)="getPickUpTimes(true)">
+      <span class="pickup-time-btn align-timings">
+        Pickup Time
+      </span>
+    </div>
+    <div class="btn btn-dark menu-card" (click)="placeOrder()">
+      <p class="align-timings">{{selectedOrderTime}}</p>
+    </div>
+  </div>
+
+  <div class="scrollable">
+    <div *ngFor="let selectedProduct of selectedProducts; let j = index;">
+      <mdb-card class="mt-5">
+        <mdb-card-body>
+          <mdb-card-text>
+            <div class="row">
+              <div class="col-6">
+                <p>
+                  {{selectedProduct.product.name}}
+                </p>
+              </div>
+              <div class="col-6">
+                <p class="float-right font-weight-bold text-dark">
+                  &euro;{{selectedProduct.product.fullPrice}}
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-7">
+                <p class="font-weight-bold text-dark">
+                  Without :
+                </p>
+              </div>
+              <div class="col-5">
+                <span *ngFor="let ingredient of selectedProduct.unSelectedIngredients; let i = index;">
+                  {{ingredient.name}}
+                  {{(selectedProduct.unSelectedIngredients.length > 1  && i !== (selectedProduct.unSelectedIngredients.length - 1)) ? ',' : ''}}
+                </span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-7">
+                <p class="font-weight-bold text-dark">
+                  Add ons :
+                </p>
+              </div>
+              <div class="col-5">
+                <div *ngFor="let addOn of selectedProduct.selectedAddOns; let i = index;">
+                  <span *ngIf="addOn.checked">
+                    {{addOn.name}}
+                    {{(selectedProduct.selectedAddOns.length > 1 && i < selectedProduct.selectedAddOns.length) ? ',' : ''}}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-6">
+                <h6 class="font-weight-bold text-dark" (click)="onClickCustomize(j)">
+                  Customize
+                </h6>
+              </div>
+
+            </div>
+            <br>
+            <div class="d-flex">
+              <div class="col-7">
+                <img class="product-count-btns" src="../../../assets/images/minus-sign.png" alt="" width="30px"
+                  (click)="decreaseCount(selectedProduct.product)">
+                <span class="h5 mx-1 pr-1 product-count product-count-btns">{{selectedProduct.product.count}}</span>
+                <img class="product-count-btns" src="../../../assets/images/plus.png" alt="" width="25px"
+                  (click)="increaseCount(selectedProduct.product)">
+
+
+              </div>
+              <div class="offset-3 col-2 pl-4 mt-1">
+                <img src="../../../assets/images/delete_icon.png" (click)="onClickDelete(j)" alt="" width="25px">
+              </div>
+            </div>
+          </mdb-card-text>
+        </mdb-card-body>
+      </mdb-card>
+
+    </div>
+
+    <!-- <mdb-card class="mt-5">
+      <mdb-card-body>
+        <mdb-card-text>
+          <div class="row">
+            <div class="col-6">
+              <p class="font-weight-bold">
+                Sub Total
+              </p>
+            </div>
+            <div class="col-6">
+              <p class="float-right font-weight-bold text-dark">
+                &euro;{{totalOrderAmount.toFixed(2)}}
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <p>
+                Tax
+              </p>
+            </div>
+            <div class="col-6">
+              <p class="float-right font-weight-bold text-dark">
+                &euro;{{totalTax.toFixed(2)}}
+              </p>
+            </div>
+          </div> 
+
+        </mdb-card-text>
+      </mdb-card-body>
+    </mdb-card> -->
+
+
+    <mdb-card class="mt-1 border-0">
+      <mdb-card-body>
+        <mdb-card-text>
+          <div class="row">
+            <div class="col-6">
+              <p>
+                Order Total :
+              </p>
+            </div>
+            <div class="col-6">
+              <p class="float-right font-weight-bold text-dark">
+                &euro;{{totalOrderAmount.toFixed(2)}}
+              </p>
+            </div>
+          </div>
+        </mdb-card-text>
+      </mdb-card-body>
+    </mdb-card>
+
+
+    <div mdbModal #timingsModal="mdbModal" class="modal fade right modal-full-height modal-right" tabindex="-1"
+      role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-full-height modal-right" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="d-flex mt-3 justify-content-center" *ngFor="let timing of orderTimings; let i=index;">
+              <div class="round">
+                <input type="checkbox" name="timingsCheckbox" id="{{i}}" [checked]="timing.time == selectedOrderTime" />
+                <label (click)="onSelectPickupTime(timing)" for="{{i}}"></label>
+              </div>
+              <span class="pl-4 font font-weight-bold">{{timing.time}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>

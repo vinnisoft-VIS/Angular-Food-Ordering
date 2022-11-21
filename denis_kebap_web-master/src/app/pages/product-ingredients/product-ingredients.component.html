@@ -1,0 +1,48 @@
+  <h3 class="text-center font-weight-bold font">
+    Add Ingredient
+  </h3>
+  <div class="row mt-5 pl-4">
+    <h4 class="font">
+      {{productName}}
+    </h4>
+  </div>
+  <div class="row mt-2 pl-4">
+    <h5 class="font">
+      Ingredient
+    </h5>
+  </div>
+
+  <div [ngClass]="[i == 0 ? 'mt-4' : 'mt-2']" class="row pl-4" *ngFor="let ingredient of ingredients; let i = index;">
+    <div class="round">
+      <input type="checkbox" id="{{ingredient.id}}" name="{{ingredient.name}}"
+        [(ngModel)]="ingredient.checked" [checked]="ingredient.checked" (change)="onChangeSelectList(true)"/>
+      <label for="{{ingredient.id}}"></label>
+
+    </div>
+    <span class="pl-4 mt-1 font">{{ingredient.name}}</span>
+  </div>
+
+  <div class="row mt-4 pl-4">
+    <h5 class="font">
+      Add ons
+    </h5>
+  </div>
+
+  <div *ngFor="let addOn of addOns">
+    <div class="row mt-3 pl-2">
+      <div class="col-7 d-flex justify-content-start">
+        <div class="round">
+          <input type="checkbox" name="{{addOn.name}}" id="{{addOn.id}}" [checked]="addOn.checked"
+            [(ngModel)]="addOn.checked" (change)="onChangeSelectList(false)" />
+          <label for="{{addOn.id}}"></label>
+        </div>
+        <span class="pl-4 font">{{addOn.name}}</span>
+      </div>
+
+      <div class="col-5">
+        <span class="pl-4 mt-1 font">&euro;{{addOn.fullPrice.toFixed(2)}}</span>
+
+      </div>
+
+    </div>
+  </div>

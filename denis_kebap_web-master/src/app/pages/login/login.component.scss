@@ -1,0 +1,25 @@
+.bg {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85) 15.32%, rgba(196, 196, 196, 0) 282.3%),url('../../../assets/images/login-background-image.jpg');
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.denis-logo {
+  border: solid 8px white;
+  border-radius: 50%;
+}
+
+input[type=text]::placeholder {
+    left: 20px;
+    top: 8px;
+    position: absolute;
+    color: #AEADAD;
+}
+
+.btn-dark {
+  background-color: black !important;
+}
